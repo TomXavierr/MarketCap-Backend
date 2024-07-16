@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'corsheaders',
 
     'authentication',
+    'stocks',
 ]
 
 MIDDLEWARE = [
@@ -106,7 +107,7 @@ WSGI_APPLICATION = 'marketcap.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':  'MarketCap',
+        'NAME':  'MarketCapDB',
         'USER': 'postgres',
         'PASSWORD': 'Tom@2002',
         'HOST': 'localhost',
@@ -160,7 +161,7 @@ AUTH_USER_MODEL = 'authentication.UserAccount'
 
 
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWS_CREDENTIALS = True
 
 
 # CORS_ALLOWED_ORIGINS = [

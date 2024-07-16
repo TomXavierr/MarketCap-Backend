@@ -3,10 +3,12 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework import status, generics
 from .serializers import UserSerializer
-
-
 from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404
+
+import logging
+
+logger = logging.getLogger(__name__)
 
 User = get_user_model()
 
@@ -28,6 +30,10 @@ class CreateUserView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
+    
+    def post(self, request, *args, **kwargs):
+        logger.info("Received register request data: %s", request.data)
+        return super().post(request, *args, **kwargs)
 
 
 
